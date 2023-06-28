@@ -25,12 +25,15 @@ public TopOfListDoping(double price) {
 super.setPrice(price); 	
 }
 
-// "Doping" soyut sınıfından kalıtımla gelen, "calculate" isimli soyut metodu metot ezmesi yöntemiyle alt sınıf kendi ihtiyacına göre dolduruyor. // "TopOfList" isimli doping tipinde vergiler olmadığı için komisyon oranı eklenip ücret hesaplanıyor. Fakat, başka doping çeşitlerinde hesaplama farklı olabilir. @Override public double calculate() { 
+@Override public double calculate() { 
 return super.getPrice() + super.getPrice() * 0.35; 	}
+
 }
 
 public class UptodateDoping extends Doping { 
-public UptodateDoping(double price, double[] taxes) { super.setPrice(price); super.setTaxes(taxes); 	}
+public UptodateDoping(double price, double[] taxes)
+{ 
+super.setPrice(price); super.setTaxes(taxes); 	}
 
 // "Doping" soyut sınıfından kalıtımla gelen, "calculate" isimli soyut metodu metot ezmesi yöntemiyle alt sınıf kendi ihtiyacına göre dolduruyor. // "UptodateDoping" isimli doping tipinde vergiler fiyata dahil olduğu için komisyon oranı eklenip ve vergiler hesaplanıp ücret belirleniyor. // Görüldüğü gibi her doping çeşidinin fiyat hesaplama yöntemleri birbirinden farklıdır. Soyutlama ile sınıflara ait iç çalışma detayları gizlenmmiş oluyor. // Doping tiplerinde sadece "calculate" isimli fonksiyonu dış dünyaya açtık. Diğer tüm fonksiyonlar ve özellikler sınıf içinde kaldı. @Override public double calculate() { 		
 return calculateTaxes() + commisionRate(); 	}
