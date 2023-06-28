@@ -44,5 +44,10 @@ for(int i=0; i < super.getTaxes().length; i++) {
 totalTaxValue += super.getTaxes()[i]; 		}
 return totalTaxValue; 	}
 
-private double commisionRate() { return super.getPrice() * 0.2; 	}
+private double commisionRate() { return super.getPrice() * 0.2; 
 }
+
+   }
+
+
+   
